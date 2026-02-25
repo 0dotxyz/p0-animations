@@ -1,4 +1,4 @@
-# AGENTS.md — p0-animations
+# CLAUDE.md — p0-animations
 
 P0 animated social media templates built with Remotion, React, TypeScript, Zod, and TailwindCSS v4. Designed for the growth team to duplicate and customize via LLM-assisted vibe coding.
 
