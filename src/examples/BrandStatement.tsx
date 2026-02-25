@@ -95,7 +95,7 @@ export const BrandStatement: React.FC<z.infer<typeof brandStatementSchema>> = ({
           overflow: "hidden",
         }}
       >
-        <NodesBackground theme={theme} variant="main" opacity={0.4} />
+        <NodesBackground theme={theme} variant="main" opacity={0.7} />
         {/* Purple gradient wash over the bottom */}
         <AbsoluteFill
           style={{

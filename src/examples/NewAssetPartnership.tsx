@@ -12,19 +12,16 @@ import { GradientBackground } from "../components/GradientBackground";
 import { NodesBackground } from "../components/NodesBackground";
 import { P0LogoMark } from "../components/P0Logo";
 
-export const partnershipSchema = z.object({
+export const newAssetPartnershipSchema = z.object({
   headline: z.string(),
   partnerLogoSrc: z.string(),
   tokenIcons: z.array(z.string()),
   theme: z.enum(["dark", "light"]),
 });
 
-export const Partnership: React.FC<z.infer<typeof partnershipSchema>> = ({
-  headline,
-  partnerLogoSrc,
-  tokenIcons,
-  theme,
-}) => {
+export const NewAssetPartnership: React.FC<
+  z.infer<typeof newAssetPartnershipSchema>
+> = ({ headline, partnerLogoSrc, tokenIcons, theme }) => {
   ensureFontsLoaded();
 
   const frame = useCurrentFrame();
@@ -63,7 +60,12 @@ export const Partnership: React.FC<z.infer<typeof partnershipSchema>> = ({
       <GradientBackground theme={theme} />
 
       {/* Layer 2: Animated node lines */}
-      <NodesBackground theme={theme} variant="main" opacity={0.4} />
+      <NodesBackground
+        theme={theme}
+        variant="pay-hero"
+        opacity={0.8}
+        color="white"
+      />
 
       {/* Layer 3: Content */}
       <AbsoluteFill

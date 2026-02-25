@@ -29,7 +29,7 @@
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
-    "render:partnership": "remotion render Partnership out/partnership.mp4",
+    "render:partnership": "remotion render NewAssetPartnership out/new-asset-partnership.mp4",
     "render:new-asset": "remotion render NewAsset out/new-asset.mp4",
     "render:ecosystem": "remotion render EcosystemMap out/ecosystem.mp4",
     "render:brand": "remotion render BrandStatement out/brand-statement.mp4"

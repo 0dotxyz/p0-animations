@@ -60,7 +60,7 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
       <GradientBackground theme={theme} />
 
       {/* Layer 2: Animated node lines */}
-      <NodesBackground theme={theme} variant="detail" opacity={0.3} />
+      <NodesBackground theme={theme} variant="detail" opacity={0.6} />
 
       {/* Layer 3: Content */}
       <AbsoluteFill

@@ -1,7 +1,10 @@
 import "./index.css";
 import { Composition, Folder } from "remotion";
 import { COMP_FPS, COMP_HEIGHT, COMP_WIDTH } from "./lib/brand";
-import { Partnership, partnershipSchema } from "./examples/Partnership";
+import {
+  NewAssetPartnership,
+  newAssetPartnershipSchema,
+} from "./examples/NewAssetPartnership";
 import { NewAsset, newAssetSchema } from "./examples/NewAsset";
 import { EcosystemMap, ecosystemMapSchema } from "./examples/EcosystemMap";
 import {
@@ -12,15 +15,15 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <Folder name="Examples">
-      {/* Example 1: Partnership announcement — "New Drift LSTs" style */}
+      {/* Example 1: New asset partnership — "New Drift LSTs" style */}
       <Composition
-        id="Partnership"
-        component={Partnership}
+        id="NewAssetPartnership"
+        component={NewAssetPartnership}
         durationInFrames={120}
         fps={COMP_FPS}
         width={COMP_WIDTH}
         height={COMP_HEIGHT}
-        schema={partnershipSchema}
+        schema={newAssetPartnershipSchema}
         defaultProps={{
           headline: "New Drift LSTs",
           partnerLogoSrc:
