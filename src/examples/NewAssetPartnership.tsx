@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Img,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -29,11 +30,23 @@ export const NewAssetPartnership: React.FC<
 
   const textColor = theme === "dark" ? "#FFFFFF" : "#0A0A0A";
 
-  // Logo row entrance — scale + fade
-  const logoEntrance = spring({
+  // Resolve asset src — remote URLs pass through, local paths use staticFile()
+  const resolveSrc = (src: string) =>
+    src.startsWith("http") ? src : staticFile(src);
+
+  // P0 logo entrance
+  const p0LogoEntrance = spring({
     frame,
     fps,
     config: { damping: 200 },
+  });
+
+  // Partner logo entrance — staggers after P0
+  const partnerLogoEntrance = spring({
+    frame,
+    fps,
+    config: { damping: 200 },
+    delay: 6,
   });
 
   // Headline entrance — springs in after logos
@@ -41,7 +54,7 @@ export const NewAssetPartnership: React.FC<
     frame,
     fps,
     config: { damping: 200 },
-    delay: 10,
+    delay: 14,
   });
 
   // Token icon stagger — each icon enters with a slight delay
@@ -50,7 +63,7 @@ export const NewAssetPartnership: React.FC<
       frame,
       fps,
       config: { damping: 100 },
-      delay: 20 + i * 6,
+      delay: 24 + i * 6,
     }),
   );
 
@@ -81,13 +94,28 @@ export const NewAssetPartnership: React.FC<
             alignItems: "center",
             gap: 24,
             marginBottom: 24,
-            opacity: logoEntrance,
-            transform: `scale(${logoEntrance})`,
           }}
         >
-          <P0LogoMark size={48} fill={textColor} />
+          <div
+            style={{
+              opacity: p0LogoEntrance,
+              transform: `scale(${p0LogoEntrance})`,
+            }}
+          >
+            <P0LogoMark size={80} fill={textColor} />
+          </div>
           {partnerLogoSrc && (
-            <Img src={partnerLogoSrc} style={{ height: 48, width: "auto" }} />
+            <div
+              style={{
+                opacity: partnerLogoEntrance,
+                transform: `scale(${partnerLogoEntrance})`,
+              }}
+            >
+              <Img
+                src={resolveSrc(partnerLogoSrc)}
+                style={{ height: 80, width: "auto" }}
+              />
+            </div>
           )}
         </div>
 
@@ -96,7 +124,7 @@ export const NewAssetPartnership: React.FC<
           style={{
             fontFamily: FONT_FAMILY_SANS,
             fontWeight: 500,
-            fontSize: 96,
+            fontSize: 112,
             color: textColor,
             textAlign: "center",
             margin: 0,
@@ -126,11 +154,11 @@ export const NewAssetPartnership: React.FC<
                 }}
               >
                 <Img
-                  src={icon}
+                  src={resolveSrc(icon)}
                   style={{
-                    width: 96,
-                    height: 96,
-                    borderRadius: 20,
+                    width: 125,
+                    height: 125,
+                    borderRadius: 12,
                   }}
                 />
               </div>

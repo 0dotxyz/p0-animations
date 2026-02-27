@@ -26,8 +26,7 @@ export const RemotionRoot: React.FC = () => {
         schema={newAssetPartnershipSchema}
         defaultProps={{
           headline: "New Drift LSTs",
-          partnerLogoSrc:
-            "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn.png",
+          partnerLogoSrc: "assets/logos/drift.svg",
           tokenIcons: [
             "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/So11111111111111111111111111111111111111112.png",
             "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn.png",
