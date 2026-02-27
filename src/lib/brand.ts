@@ -47,6 +47,6 @@ export const FONT_FAMILY_SANS = "ABCOracle, sans-serif";
 export const FONT_FAMILY_MONO = "AeonikMono, monospace";
 
 // Common composition settings
-export const COMP_WIDTH = 1920;
-export const COMP_HEIGHT = 1080;
+export const COMP_WIDTH = 1600;
+export const COMP_HEIGHT = 900;
 export const COMP_FPS = 30;

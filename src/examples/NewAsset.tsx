@@ -60,13 +60,19 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
       <GradientBackground theme={theme} />
 
       {/* Layer 2: Animated node lines */}
-      <NodesBackground theme={theme} variant="detail" opacity={0.6} />
+      <NodesBackground
+        theme={theme}
+        variant="rings"
+        opacity={0.15}
+        color={theme === "dark" ? "white" : "black"}
+      />
 
       {/* Layer 3: Content */}
       <AbsoluteFill
         style={{
           justifyContent: "center",
           alignItems: "center",
+          marginTop: -20,
         }}
       >
         {/* Token icon */}
@@ -82,7 +88,7 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
             style={{
               width: 120,
               height: 120,
-              borderRadius: 24,
+              borderRadius: 12,
             }}
           />
         </div>
@@ -131,20 +137,31 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
               letterSpacing: "0.05em",
             }}
           >
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: "50%",
-                border: `2px solid ${COLORS.purple}`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 14,
-              }}
-            >
-              +
-            </span>
+            <svg width={22} height={22} viewBox="0 0 22 22" fill="none">
+              <circle
+                cx={11}
+                cy={11}
+                r={9.5}
+                stroke={COLORS.purple}
+                strokeWidth={2}
+              />
+              <line
+                x1={11}
+                y1={6}
+                x2={11}
+                y2={16}
+                stroke={COLORS.purple}
+                strokeWidth={1.5}
+              />
+              <line
+                x1={6}
+                y1={11}
+                x2={16}
+                y2={11}
+                stroke={COLORS.purple}
+                strokeWidth={1.5}
+              />
+            </svg>
             {badgeText}
           </div>
         </div>

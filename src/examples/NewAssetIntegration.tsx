@@ -13,15 +13,15 @@ import { GradientBackground } from "../components/GradientBackground";
 import { NodesBackground } from "../components/NodesBackground";
 import { P0LogoMark } from "../components/P0Logo";
 
-export const newAssetPartnershipSchema = z.object({
+export const newAssetIntegrationSchema = z.object({
   headline: z.string(),
   partnerLogoSrc: z.string(),
   tokenIcons: z.array(z.string()),
   theme: z.enum(["dark", "light"]),
 });
 
-export const NewAssetPartnership: React.FC<
-  z.infer<typeof newAssetPartnershipSchema>
+export const NewAssetIntegration: React.FC<
+  z.infer<typeof newAssetIntegrationSchema>
 > = ({ headline, partnerLogoSrc, tokenIcons, theme }) => {
   ensureFontsLoaded();
 
@@ -75,7 +75,7 @@ export const NewAssetPartnership: React.FC<
       {/* Layer 2: Animated node lines */}
       <NodesBackground
         theme={theme}
-        variant="pay-hero"
+        variant="rings"
         opacity={0.8}
         color="white"
       />
@@ -85,6 +85,7 @@ export const NewAssetPartnership: React.FC<
         style={{
           justifyContent: "center",
           alignItems: "center",
+          marginTop: -20,
         }}
       >
         {/* Logo row: P0 + Partner */}
@@ -156,8 +157,8 @@ export const NewAssetPartnership: React.FC<
                 <Img
                   src={resolveSrc(icon)}
                   style={{
-                    width: 125,
-                    height: 125,
+                    width: 120,
+                    height: 120,
                     borderRadius: 12,
                   }}
                 />
