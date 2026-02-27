@@ -62,7 +62,7 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           headline: "Heading goes here",
           subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.",
         }}
       />
     </Folder>

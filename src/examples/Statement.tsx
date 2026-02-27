@@ -126,10 +126,10 @@ export const Statement: React.FC<z.infer<typeof statementSchema>> = ({
         }}
       />
 
-      {/* Layer 3: Bottom Lottie — waves, white, flipped vertically */}
+      {/* Layer 3: Bottom Lottie — waves (no text), white, flipped vertically */}
       <LottieLayer
         theme="dark"
-        variant="waves.json"
+        variant="waves-notext.json"
         style={{
           position: "absolute",
           bottom: -40,

@@ -47,8 +47,8 @@ src/
 public/
   assets/
     fonts/                      — ABCOracle and AeonikMono .woff files
-    lottie/dark/                — Dark theme Lottie JSON (waves.json, rings.json)
-    lottie/light/               — Light theme Lottie JSON (waves.json, rings.json)
+    lottie/dark/                — Dark theme Lottie JSON (waves.json, waves-notext.json, rings.json)
+    lottie/light/               — Light theme Lottie JSON (waves.json, waves-notext.json, rings.json)
     logos/                      — Partner/brand logos (SVG, PNG) e.g. drift.svg
 remotion.config.ts              — Remotion CLI config (JPEG output, overwrite, Tailwind webpack)
 ```
