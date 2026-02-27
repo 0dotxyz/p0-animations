@@ -15,7 +15,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="NewAssetIntegration"
         component={NewAssetIntegration}
-        durationInFrames={120}
+        durationInFrames={270}
         fps={COMP_FPS}
         width={COMP_WIDTH}
         height={COMP_HEIGHT}
@@ -36,7 +36,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="NewAsset"
         component={NewAsset}
-        durationInFrames={90}
+        durationInFrames={240}
         fps={COMP_FPS}
         width={COMP_WIDTH}
         height={COMP_HEIGHT}
@@ -54,7 +54,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Statement"
         component={Statement}
-        durationInFrames={120}
+        durationInFrames={270}
         fps={COMP_FPS}
         width={COMP_WIDTH}
         height={COMP_HEIGHT}

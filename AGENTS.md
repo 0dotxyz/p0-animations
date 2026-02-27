@@ -2,7 +2,7 @@
 
 P0 animated social media templates built with Remotion, React, TypeScript, Zod, and TailwindCSS v4. Designed for the growth team to duplicate and customize via LLM-assisted vibe coding.
 
-**Output format**: 1600x900 (16:9), 30fps, 3-4 second loops rendered to MP4.
+**Output format**: 1600x900 (16:9), 30fps, 8-9 second loops rendered to MP4.
 
 ## Build / Lint / Render Commands
 
