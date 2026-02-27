@@ -29,10 +29,9 @@
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
-    "render:partnership": "remotion render NewAssetPartnership out/new-asset-partnership.mp4",
+    "render:integration": "remotion render NewAssetIntegration out/new-asset-integration.mp4",
     "render:new-asset": "remotion render NewAsset out/new-asset.mp4",
-    "render:ecosystem": "remotion render EcosystemMap out/ecosystem.mp4",
-    "render:brand": "remotion render BrandStatement out/brand-statement.mp4"
+    "render:statement": "remotion render Statement out/statement.mp4"
   },
   "sideEffects": [
     "*.css"
