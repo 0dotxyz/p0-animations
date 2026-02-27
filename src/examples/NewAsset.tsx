@@ -29,7 +29,7 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const textColor = theme === "dark" ? "#FFFFFF" : "#0A0A0A";
+  const textColor = theme === "dark" ? COLORS.white : COLORS.nearBlack;
 
   // Token icon — scales in with spring
   const iconEntrance = spring({

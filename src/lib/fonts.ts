@@ -1,5 +1,4 @@
-import { staticFile } from "remotion";
-import { continueRender, delayRender } from "remotion";
+import { continueRender, delayRender, staticFile } from "remotion";
 
 let fontsLoaded = false;
 let fontsHandle: number | null = null;

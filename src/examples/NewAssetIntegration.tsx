@@ -8,7 +8,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { ensureFontsLoaded } from "../lib/fonts";
-import { FONT_FAMILY_SANS } from "../lib/brand";
+import { COLORS, FONT_FAMILY_SANS } from "../lib/brand";
 import { GradientBackground } from "../components/GradientBackground";
 import { NodesBackground } from "../components/NodesBackground";
 import { P0LogoMark } from "../components/P0Logo";
@@ -28,7 +28,7 @@ export const NewAssetIntegration: React.FC<
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const textColor = theme === "dark" ? "#FFFFFF" : "#0A0A0A";
+  const textColor = theme === "dark" ? COLORS.white : COLORS.nearBlack;
 
   // Resolve asset src — remote URLs pass through, local paths use staticFile()
   const resolveSrc = (src: string) =>

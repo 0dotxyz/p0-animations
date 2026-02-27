@@ -8,17 +8,9 @@ import {
   staticFile,
   useVideoConfig,
 } from "remotion";
+import { LOTTIE_DIMENSIONS } from "../lib/brand";
 
 type NodesVariant = "waves" | "rings";
-
-// Native dimensions of each Lottie variant (from p0-app)
-const LOTTIE_DIMENSIONS: Record<
-  NodesVariant,
-  { width: number; height: number }
-> = {
-  waves: { width: 2560, height: 300 },
-  rings: { width: 2790, height: 1600 },
-};
 
 // Map variant name to the file path within the lottie directory
 const LOTTIE_PATH: Record<NodesVariant, string> = {

@@ -49,8 +49,7 @@ public/
     fonts/                      — ABCOracle and AeonikMono .woff files
     lottie/dark/                — Dark theme Lottie JSON (waves.json, rings.json)
     lottie/light/               — Light theme Lottie JSON (waves.json, rings.json)
-    logos/                      — Partner/brand logos (SVG, PNG)
-    icons/                      — Token icons (PNG, SVG) — mostly loaded from remote URLs
+    logos/                      — Partner/brand logos (SVG, PNG) e.g. drift.svg
 remotion.config.ts              — Remotion CLI config (JPEG output, overwrite, Tailwind webpack)
 ```
 
@@ -175,12 +174,12 @@ Use this pattern when a prop could be either a remote URL or a local asset path.
 
 ## Available Shared Components
 
-| Component            | Props                                                      | Description                         |
-| -------------------- | ---------------------------------------------------------- | ----------------------------------- |
-| `GradientBackground` | `theme: "dark" \| "light"`                                 | Full-frame gradient background      |
-| `NodesBackground`    | `theme`, `variant: "waves" \| "rings"`, `opacity`, `color` | Lottie animation background layer   |
-| `P0LogoMark`         | `size`, `fill`, `gradient`                                 | P0 twisted-S logomark               |
-| `P0Logo`             | `width`, `fill`                                            | Full "project 0" wordmark (compact) |
+| Component            | Props                                                      | Description                        |
+| -------------------- | ---------------------------------------------------------- | ---------------------------------- |
+| `GradientBackground` | `theme: "dark" \| "light"`                                 | Full-frame gradient background     |
+| `NodesBackground`    | `theme`, `variant: "waves" \| "rings"`, `opacity`, `color` | Lottie animation background layer  |
+| `P0LogoMark`         | `size`, `fill`, `gradient`                                 | P0 twisted-S logomark              |
+| `P0Logo`             | `width`, `fill`                                            | Full "Project 0" wordmark (177x44) |
 
 ### NodesBackground variants
 
@@ -199,19 +198,34 @@ The `color` prop applies a CSS filter: `"white"` = `brightness(0) invert(1)`, `"
 | `COLORS.darkBlue`   | `#1E468C`               | Dark blue                   |
 | `COLORS.mediumBlue` | `#345AAD`               | Medium blue                 |
 | `COLORS.lightBlue`  | `#BED7F5`               | Light pastel blue           |
+| `COLORS.paleBlue`   | `#D6E8F9`               | Pale blue (gradient end)    |
 | `COLORS.nearBlack`  | `#0A0A0A`               | Near black                  |
 | `COLORS.darkBg`     | `#171721`               | Dark background             |
+| `COLORS.white`      | `#FFFFFF`               | White                       |
+| `COLORS.lightGray`  | `#F9F9FB`               | Light gray (light theme)    |
+| `COLORS.palePurple` | `#EDE5FF`               | Pale purple (light theme)   |
 | `FONT_FAMILY_SANS`  | `ABCOracle, sans-serif` | Brand sans-serif            |
 | `FONT_FAMILY_MONO`  | `AeonikMono, monospace` | Brand monospace             |
 | `COMP_WIDTH`        | `1600`                  | Standard composition width  |
 | `COMP_HEIGHT`       | `900`                   | Standard composition height |
 | `COMP_FPS`          | `30`                    | Standard frame rate         |
 
-### Brand gradient (dark theme — used in Statement)
+### Gradient presets (`GRADIENTS`)
 
-```
-#0A0A0A at 0% → #1E468C at 25% → #AA87FA at 60% → #BED7F5 at 90%
-```
+| Preset      | Stops                                                                 | Used By                            |
+| ----------- | --------------------------------------------------------------------- | ---------------------------------- |
+| `dark`      | darkBg 0% → darkBlue 35% → purple 65% → lightBlue 85% → paleBlue 100% | `GradientBackground` (dark theme)  |
+| `light`     | white 0% → lightGray 60% → palePurple 100%                            | `GradientBackground` (light theme) |
+| `statement` | nearBlack 0% → darkBlue 25% → purple 60% → lightBlue 90%              | `Statement` composition            |
+
+### Lottie dimensions (`LOTTIE_DIMENSIONS`)
+
+| Variant | Width | Height | Description        |
+| ------- | ----- | ------ | ------------------ |
+| `waves` | 2560  | 300    | Flowing wave lines |
+| `rings` | 2790  | 1600   | Concentric rings   |
+
+Imported from `brand.ts` by `NodesBackground` — do not hardcode these values elsewhere.
 
 ## Code Style Guidelines
 
