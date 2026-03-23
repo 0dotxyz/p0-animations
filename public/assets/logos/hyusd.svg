@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Green circular monogram logo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#58aa2e"/>
+      <stop offset="100%" stop-color="#067a38"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Main circular badge -->
+  <circle cx="512" cy="512" r="505" fill="url(#g)"/>
+
+  <!-- Inner white broken ring -->
+  <path d="M 403 96 A 426 426 0 0 0 403 928" fill="none" stroke="#f4f4f4" stroke-width="50" stroke-linecap="butt"/>
+  <path d="M 621 96 A 426 426 0 0 1 621 928" fill="none" stroke="#f4f4f4" stroke-width="50" stroke-linecap="butt"/>
+
+  <!-- Top-left glyph -->
+  <path fill="#f4f4f4" d="
+    M 305 262
+    H 500
+    a 12 12 0 0 1 12 12
+    V 355
+    a 22 22 0 0 1 -22 22
+    H 370
+    v 71
+    h 106
+    a 12 12 0 0 1 12 12
+    V 526
+    a 12 12 0 0 1 -12 12
+    H 341
+    a 22 22 0 0 1 -16 -7
+    l -28 -28
+    a 22 22 0 0 1 -7 -16
+    V 284
+    a 22 22 0 0 1 22 -22
+    z
+  "/>
+  <rect x="474" y="212" width="78" height="165" rx="12" ry="12" fill="#f4f4f4"/>
+
+  <!-- Bottom-right glyph -->
+  <path fill="#f4f4f4" d="
+    M 548 448
+    H 691
+    a 22 22 0 0 1 16 7
+    l 34 34
+    a 22 22 0 0 1 7 16
+    V 668
+    a 22 22 0 0 1 -22 22
+    H 554
+    v 92
+    a 12 12 0 0 1 -12 12
+    h -56
+    a 12 12 0 0 1 -12 -12
+    V 621
+    a 16 16 0 0 1 16 -16
+    h 179
+    v -65
+    H 548
+    a 12 12 0 0 1 -12 -12
+    V 460
+    a 12 12 0 0 1 12 -12
+    z
+  "/>
+  <rect x="474" y="605" width="80" height="176" rx="12" ry="12" fill="#f4f4f4"/>
+</svg>
