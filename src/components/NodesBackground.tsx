@@ -1,18 +1,10 @@
-import { Lottie, LottieAnimationData } from "@remotion/lottie";
-import { useEffect, useState } from "react";
-import {
-  AbsoluteFill,
-  cancelRender,
-  continueRender,
-  delayRender,
-  staticFile,
-  useVideoConfig,
-} from "remotion";
+import { Lottie } from "@remotion/lottie";
+import { AbsoluteFill, useVideoConfig } from "remotion";
 import { LOTTIE_DIMENSIONS } from "../lib/brand";
+import { useLottie } from "../lib/useLottie";
 
 type NodesVariant = "waves" | "rings";
 
-// Map variant name to the file path within the lottie directory
 const LOTTIE_PATH: Record<NodesVariant, string> = {
   waves: "waves.json",
   rings: "rings.json",
@@ -25,25 +17,9 @@ export const NodesBackground: React.FC<{
   readonly color?: "white" | "black" | "original";
 }> = ({ theme, variant = "waves", opacity = 0.6, color = "original" }) => {
   const { height: frameHeight } = useVideoConfig();
-  const [handle] = useState(() =>
-    delayRender("Loading nodes Lottie animation"),
+  const animationData = useLottie(
+    `assets/lottie/${theme}/${LOTTIE_PATH[variant]}`,
   );
-  const [animationData, setAnimationData] =
-    useState<LottieAnimationData | null>(null);
-
-  useEffect(() => {
-    const path = staticFile(`assets/lottie/${theme}/${LOTTIE_PATH[variant]}`);
-
-    fetch(path)
-      .then((res) => res.json())
-      .then((json) => {
-        setAnimationData(json as LottieAnimationData);
-        continueRender(handle);
-      })
-      .catch((err) => {
-        cancelRender(err);
-      });
-  }, [handle, theme, variant]);
 
   if (!animationData) {
     return null;
@@ -51,7 +27,6 @@ export const NodesBackground: React.FC<{
 
   const dims = LOTTIE_DIMENSIONS[variant];
 
-  // CSS filter to force white or black color on all Lottie elements
   const colorFilter =
     color === "white"
       ? "brightness(0) invert(1)"
@@ -59,9 +34,6 @@ export const NodesBackground: React.FC<{
         ? "brightness(0)"
         : undefined;
 
-  // For rings, render at native size centered horizontally,
-  // and shift so the visual focal point (rings convergence at ~40%)
-  // aligns with the frame center.
   if (variant === "rings") {
     const focalPointY = 0.4;
     const topOffset = frameHeight / 2 - dims.height * focalPointY;
@@ -94,8 +66,6 @@ export const NodesBackground: React.FC<{
     );
   }
 
-  // For waves, render at native dimensions
-  // and center vertically within the frame
   return (
     <AbsoluteFill
       style={{
