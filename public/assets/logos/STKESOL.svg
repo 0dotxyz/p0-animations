@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Black three-bar logo on purple orange yellow gradient background">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a3cff"/>
+      <stop offset="42%" stop-color="#e65bbb"/>
+      <stop offset="72%" stop-color="#ff6a1a"/>
+      <stop offset="100%" stop-color="#ffd51f"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <ellipse cx="250" cy="230" rx="450" ry="360" fill="#9852ff" opacity="0.35" filter="url(#soft)"/>
+  <ellipse cx="835" cy="820" rx="470" ry="420" fill="#ff5a00" opacity="0.35" filter="url(#soft)"/>
+  <g fill="#000000">
+    <path d="M360 292 H772 Q789 292 799 305 Q808 317 796 329 L678 445 Q668 455 654 455 H244 Q226 455 218 439 Q211 425 224 412 L342 300 Q350 292 360 292 Z"/>
+    <path d="M244 476 H654 Q668 476 678 486 L796 602 Q808 614 799 626 Q789 639 772 639 H360 Q350 639 342 631 L224 519 Q211 506 218 492 Q226 476 244 476 Z"/>
+    <path d="M360 660 H772 Q789 660 799 673 Q808 685 796 697 L678 813 Q668 823 654 823 H244 Q226 823 218 807 Q211 793 224 780 L342 668 Q350 660 360 660 Z"/>
+  </g>
+</svg>
