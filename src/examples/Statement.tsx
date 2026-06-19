@@ -1,16 +1,11 @@
 import { z } from "zod";
-import { useEffect, useState } from "react";
 import {
   AbsoluteFill,
-  cancelRender,
-  continueRender,
-  delayRender,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Lottie, LottieAnimationData } from "@remotion/lottie";
+import { Lottie } from "@remotion/lottie";
 import { ensureFontsLoaded } from "../lib/fonts";
 import {
   COLORS,
@@ -18,6 +13,7 @@ import {
   GRADIENTS,
   LOTTIE_DIMENSIONS,
 } from "../lib/brand";
+import { useLottie } from "../lib/useLottie";
 import { P0Logo } from "../components/P0Logo";
 
 export const statementSchema = z.object({
@@ -25,31 +21,17 @@ export const statementSchema = z.object({
   subtitle: z.string(),
 });
 
-// Inline Lottie loader for custom positioning (top/bottom with flip)
 const LottieLayer: React.FC<{
   readonly theme: "dark" | "light";
   readonly variant: string;
   readonly style?: React.CSSProperties;
   readonly lottieStyle?: React.CSSProperties;
 }> = ({ theme, variant, style, lottieStyle }) => {
-  const [handle] = useState(() => delayRender(`Loading ${variant} Lottie`));
-  const [animationData, setAnimationData] =
-    useState<LottieAnimationData | null>(null);
+  const animationData = useLottie(`assets/lottie/${theme}/${variant}`);
 
-  useEffect(() => {
-    const path = staticFile(`assets/lottie/${theme}/${variant}`);
-    fetch(path)
-      .then((res) => res.json())
-      .then((json) => {
-        setAnimationData(json as LottieAnimationData);
-        continueRender(handle);
-      })
-      .catch((err) => {
-        cancelRender(err);
-      });
-  }, [handle, theme, variant]);
-
-  if (!animationData) return null;
+  if (!animationData) {
+    return null;
+  }
 
   return (
     <div style={style}>

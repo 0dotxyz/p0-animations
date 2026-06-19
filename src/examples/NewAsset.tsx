@@ -6,6 +6,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { resolveAssetSrc } from "../lib/assets";
 import { ensureFontsLoaded } from "../lib/fonts";
 import { COLORS, FONT_FAMILY_SANS } from "../lib/brand";
 import { GradientBackground } from "../components/GradientBackground";
@@ -84,7 +85,7 @@ export const NewAsset: React.FC<z.infer<typeof newAssetSchema>> = ({
           }}
         >
           <Img
-            src={tokenIconSrc}
+            src={resolveAssetSrc(tokenIconSrc)}
             style={{
               width: 120,
               height: 120,

@@ -1,12 +1,23 @@
-import { continueRender, delayRender, staticFile } from "remotion";
+import { cancelRender, continueRender, delayRender, staticFile } from "remotion";
 
 let fontsLoaded = false;
 let fontsHandle: number | null = null;
+let fontsLoadStarted = false;
 
 export const ensureFontsLoaded = () => {
-  if (fontsLoaded) return;
+  if (fontsLoaded) {
+    return;
+  }
 
-  fontsHandle = delayRender("Loading P0 brand fonts");
+  if (fontsHandle === null) {
+    fontsHandle = delayRender("Loading P0 brand fonts");
+  }
+
+  if (fontsLoadStarted) {
+    return;
+  }
+
+  fontsLoadStarted = true;
 
   const fonts = [
     {
@@ -37,6 +48,7 @@ export const ensureFontsLoaded = () => {
     });
     return face.load().then((loaded) => {
       document.fonts.add(loaded);
+      return font.src;
     });
   });
 
@@ -48,9 +60,12 @@ export const ensureFontsLoaded = () => {
       }
     })
     .catch((err) => {
-      console.error("Failed to load P0 fonts:", err);
-      if (fontsHandle !== null) {
-        continueRender(fontsHandle);
-      }
+      const message =
+        err instanceof Error ? err.message : String(err);
+      cancelRender(
+        new Error(
+          `Failed to load P0 brand fonts (check public/assets/fonts/). ${message}`,
+        ),
+      );
     });
 };

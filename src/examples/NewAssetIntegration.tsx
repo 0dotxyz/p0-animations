@@ -3,10 +3,10 @@ import {
   AbsoluteFill,
   Img,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { resolveAssetSrc } from "../lib/assets";
 import { ensureFontsLoaded } from "../lib/fonts";
 import { COLORS, FONT_FAMILY_SANS } from "../lib/brand";
 import { GradientBackground } from "../components/GradientBackground";
@@ -29,10 +29,6 @@ export const NewAssetIntegration: React.FC<
   const { fps } = useVideoConfig();
 
   const textColor = theme === "dark" ? COLORS.white : COLORS.nearBlack;
-
-  // Resolve asset src — remote URLs pass through, local paths use staticFile()
-  const resolveSrc = (src: string) =>
-    src.startsWith("http") ? src : staticFile(src);
 
   // P0 logo entrance
   const p0LogoEntrance = spring({
@@ -113,7 +109,7 @@ export const NewAssetIntegration: React.FC<
               }}
             >
               <Img
-                src={resolveSrc(partnerLogoSrc)}
+                src={resolveAssetSrc(partnerLogoSrc)}
                 style={{ height: 80, width: "auto" }}
               />
             </div>
@@ -155,7 +151,7 @@ export const NewAssetIntegration: React.FC<
                 }}
               >
                 <Img
-                  src={resolveSrc(icon)}
+                  src={resolveAssetSrc(icon)}
                   style={{
                     width: 120,
                     height: 120,

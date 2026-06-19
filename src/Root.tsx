@@ -1,6 +1,7 @@
 import "./index.css";
 import { Composition, Folder } from "remotion";
 import { COMP_FPS, COMP_HEIGHT, COMP_WIDTH } from "./lib/brand";
+import { tokenIconUrl } from "./lib/assets";
 import {
   NewAssetIntegration,
   newAssetIntegrationSchema,
@@ -24,9 +25,15 @@ export const RemotionRoot: React.FC = () => {
           headline: "New Drift LSTs",
           partnerLogoSrc: "assets/logos/drift.svg",
           tokenIcons: [
-            "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/So11111111111111111111111111111111111111112.png",
-            "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn.png",
-            "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So.png",
+            tokenIconUrl(
+              "So11111111111111111111111111111111111111112",
+            ),
+            tokenIconUrl(
+              "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+            ),
+            tokenIconUrl(
+              "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+            ),
           ],
           theme: "dark" as const,
         }}
@@ -43,8 +50,9 @@ export const RemotionRoot: React.FC = () => {
         schema={newAssetSchema}
         defaultProps={{
           assetName: "STKESOL",
-          tokenIconSrc:
-            "https://xcdlwgvabmruuularsvn.supabase.co/storage/v1/object/public/p0-tokens/So11111111111111111111111111111111111111112.png",
+          tokenIconSrc: tokenIconUrl(
+            "So11111111111111111111111111111111111111112",
+          ),
           badgeText: "NEW ASSET LIVE",
           theme: "light" as const,
         }}
